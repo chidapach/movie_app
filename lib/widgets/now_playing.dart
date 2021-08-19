@@ -86,7 +86,9 @@ class _NowPlayingState extends State<NowPlaying> {
         align: IndicatorAlign.bottom,
         indicatorSpace: 8,
         padding: EdgeInsets.all(5),
-        indicatorColor: Style.Colors.secondColor,
+        indicatorColor: Style.Colors.titleColor,
+        indicatorSelectorColor: Style.Colors.secondColor,
+        shape: IndicatorShape.circle(size: 5),
         child: PageView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: movies.take(5).length,
@@ -119,6 +121,10 @@ class _NowPlayingState extends State<NowPlaying> {
                   ),
                 ),
                 Positioned(
+                  top: 0,
+                  bottom: 0,
+                  right: 0,
+                  left: 0,
                   child: Icon(FontAwesomeIcons.playCircle, color: Style.Colors.secondColor, size: 40,),
                 ),
                 Positioned(
@@ -131,7 +137,8 @@ class _NowPlayingState extends State<NowPlaying> {
                       children: <Widget>[
                         Text(
                           movies[index].title,
-                          style: TextStyle(height: 1.5,
+                          style: TextStyle(
+                          height: 1.5,
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 16
