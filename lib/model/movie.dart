@@ -16,4 +16,12 @@ class Movie{
     this.overview, 
     this.rating   
   );
+  Movie.fromJson(Map<String, dynamic> json)
+    : id = json["id"],
+      popularity = json["popularity"],
+      title = json["title"],
+      backPoster = json["backPoster"],
+      poster = json["poster"],
+      overview = json["overview"],
+      rating = json["vote_average"].toDouble();
 }
