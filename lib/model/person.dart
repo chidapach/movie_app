@@ -17,7 +17,7 @@ class Person{
     : id = json["id"],
       popularity = json["popularity"],
       name = json["name"],
-      profileImg = json["profileImg"],
-      known = json["known"];
+      profileImg = json["profile_path"],
+      known = json["known_for_department"];
      
 }

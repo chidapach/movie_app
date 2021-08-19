@@ -1,5 +1,4 @@
 import 'package:movie_app/model/genre_response.dart';
-import 'package:movie_app/model/movie_response.dart';
 import 'package:movie_app/repository/repository.dart';
 import 'package:rxdart/subjects.dart';
 
@@ -8,7 +7,7 @@ class GenresListBloc {
   final BehaviorSubject<GenreResponse> _subject = 
   BehaviorSubject<GenreResponse>();
 
-  getMovies() async {
+  getGenres() async {
     GenreResponse response = await _repository.getGenres();
     _subject.sink.add(response);
   }

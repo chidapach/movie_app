@@ -2,7 +2,7 @@ import 'package:movie_app/model/movie_response.dart';
 import 'package:movie_app/repository/repository.dart';
 import 'package:rxdart/subjects.dart';
 
-class MovieListBloc {
+class MoviesListBloc {
   final MovieRepository _repository = MovieRepository();
   final BehaviorSubject<MovieResponse> _subject = 
   BehaviorSubject<MovieResponse>();
@@ -19,4 +19,4 @@ class MovieListBloc {
   BehaviorSubject<MovieResponse> get subject => _subject;
 }
 
-final moviesBloc = MovieListBloc();
+final moviesBloc = MoviesListBloc();
