@@ -7,12 +7,11 @@ import 'package:movie_app/bloc/get_movies_byGenre_bloc.dart';
 import 'package:movie_app/model/movie.dart';
 import 'package:movie_app/model/movie_response.dart';
 import 'package:movie_app/style/theme.dart' as Style;
+import 'package:page_indicator/page_indicator.dart';
 
 class GenreMovies extends StatefulWidget {
   final int genreId;
-  GenreMovies({ Key key,this.genreId }) 
-    : super(key: key);
-
+  GenreMovies({Key key, this.genreId}) : super(key: key);
   @override
   _GenreMoviesState createState() => _GenreMoviesState(genreId);
 }
@@ -25,23 +24,25 @@ class _GenreMoviesState extends State<GenreMovies> {
     super.initState();
     moviesByGenreBloc..getMoviesByGenre(genreId);
   }
+
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<MovieResponse>(
-      stream: moviesByGenreBloc.subject.stream,
-      builder: (context, AsyncSnapshot<MovieResponse> snapshot) {
-        if(snapshot.hasData) {
-          if(snapshot.data.error != null && snapshot.data.error.length > 0) {
-            return _buildErrorWidget(snapshot.data.error);
+        stream: moviesByGenreBloc.subject.stream,
+        builder: (context, AsyncSnapshot<MovieResponse> snapshot) {
+          if (snapshot.hasData) {
+            if (snapshot.data.error != null && snapshot.data.error.length > 0) {
+              return _buildErrorWidget(snapshot.data.error);
+            }
+            return _buildMoviesByGenreWidget(snapshot.data);
+          } else if (snapshot.hasError) {
+            return _buildErrorWidget(snapshot.error);
+          } else {
+            return _buildLoadingWidget();
           }
-          return _buildMoviesByGenreWidget(snapshot.data);
-        } else if (snapshot.hasError) {
-          return _buildErrorWidget(snapshot.error);
-        } else {
-          return _buildLoadingWidget();
-        }
-      });
+        });
   }
+
   Widget _buildLoadingWidget() {
     return Center(
       child: Column(
@@ -51,12 +52,12 @@ class _GenreMoviesState extends State<GenreMovies> {
             height: 25,
             width: 25,
             child: CircularProgressIndicator(
-              valueColor: 
-                new AlwaysStoppedAnimation<Color>(Colors.white),
+              valueColor: new AlwaysStoppedAnimation<Color>(Colors.white),
               strokeWidth: 4,
             ),
           )
-      ],),
+        ],
+      ),
     );
   }
 
@@ -69,103 +70,118 @@ class _GenreMoviesState extends State<GenreMovies> {
       ],
     ));
   }
+
   Widget _buildMoviesByGenreWidget(MovieResponse data) {
+
     List<Movie> movies = data.movies;
-    if(movies.length == 0) {
+    if (movies.length == 0) {
       return Container(
         child: Text("No Movies"),
       );
-    } else 
+    } else
       return Container(
-        height: 270,
+        height: 270.0,
         padding: EdgeInsets.only(left: 10),
         child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: movies.length,
-          itemBuilder: (context, index) {
-            return Padding(padding: EdgeInsets.only(
-              top: 10,
-              bottom: 10,
-              right: 10,
-            ),
-            child: Column(
-              children: <Widget>[
-                movies[index].poster == null ?
-                Container(
-                  width: 120,
-                  height: 180,
-                  decoration: BoxDecoration(
-                    color: Style.Colors.secondColor,
-                    borderRadius: BorderRadius.all(Radius.circular(2)),
-                    shape: BoxShape.rectangle
-                  ),
-                  child: Column(
-                    children: <Widget>[
-                      Icon(EvaIcons.filmOutline, color: Colors.white, size: 50,)
-                    ],
-                  ),
-                ) : 
-                Container(
-                  width: 120,
-                  height: 180,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(2)),
-                    shape: BoxShape.rectangle,
-                    image: DecorationImage(image: NetworkImage("https://image.tmdb.org/t/p/w200" + movies[index].poster),
-                    fit: BoxFit.cover
-                    )
-                  ),
+            scrollDirection: Axis.horizontal,
+            itemCount: movies.length,
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: EdgeInsets.only(
+                  top: 10.0,
+                  bottom: 10.0,
+                  right: 10.0,
                 ),
-                SizedBox(
-                  height: 10,
-                ),
-                Container(
-                  width: 100,
-                  child: Text(
-                    movies[index].title,
-                    maxLines: 2,
-                    style: TextStyle(
-                      height: 1.4,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 11
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 5,
-                ),
-                Row(
+                child: Column(
                   children: <Widget>[
-                    Text(movies[index].rating.toString(), style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 10,
-                      fontWeight: FontWeight.bold
-                    ),),
+                    movies[index].poster == null
+                        ? Container(
+                            width: 120,
+                            height: 180,
+                            decoration: BoxDecoration(
+                                color: Style.Colors.secondColor,
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(2.0)),
+                                shape: BoxShape.rectangle),
+                            child: Column(
+                              children: <Widget>[
+                                Icon(
+                                  EvaIcons.filmOutline,
+                                  color: Colors.white,
+                                  size: 50.0,
+                                )
+                              ],
+                            ),
+                          )
+                        : Container(
+                            width: 120.0,
+                            height: 180.0,
+                            decoration: new BoxDecoration(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(2.0)),
+                              shape: BoxShape.rectangle,
+                              image: new DecorationImage(
+                                  fit: BoxFit.cover,
+
+                                  image: NetworkImage(
+                                      "https://image.tmdb.org/t/p/w200/" +
+                                          movies[index].poster)
+                                  ),
+                            ),
+                          ),
                     SizedBox(
-                      width: 5,
+                      height: 10,
                     ),
-                    // RatingBar(
-                    //   itemSize: 8,
-                    //   initialRating: movies[index].rating / 2,
-                    //   minRating: 1,
-                    //   direction: Axis.horizontal,
-                    //   allowHalfRating: true,
-                    //   itemCount: 5,
-                    //   itemPadding: EdgeInsets.symmetric(horizontal: 2),
-                    //   // itemBuilder: (context, _) => Icon(EvaIcons.star,
-                    //   // color: Style.Colors.secondColor,
-                    //   // ),
-                    //   onRatingUpdate: (rating) {
-                    //     print(rating);
-                    //   }, 
-                    //   ratingWidget: null,
-                    // )
+                    Container(
+                      width: 100,
+                      child: Text(
+                        movies[index].title,
+                        maxLines: 2,
+                        style: TextStyle(
+                            height: 1.4,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 11.0),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 5.0,
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Text(
+                          movies[index].rating.toString(),
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 10.0,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        SizedBox(
+                          width: 5.0,
+                        ),
+                        // RatingBar(
+                        //   itemSize: 8.0,
+                        //   initialRating: movies[index].rating / 2,
+                        //   minRating: 1,
+                        //   direction: Axis.horizontal,
+                        //   allowHalfRating: true,
+                        //   itemCount: 5,
+                        //   itemPadding: EdgeInsets.symmetric(horizontal: 2.0),
+                        //   // itemBuilder: (context, _) => Icon(
+                        //   //   EvaIcons.star,
+                        //   //   color: Style.Colors.secondColor,
+                        //   // ),
+                        // ratingWidget: null,
+                        // onRatingUpdate: (rating) {
+                        //   print(rating);
+                        // },
+                        //)
+                      ],
+                    ),
                   ],
                 ),
-            ],),
-            );
-        }),
-    );
+              );
+            }),
+      );
   }
 }

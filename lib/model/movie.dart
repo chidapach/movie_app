@@ -21,7 +21,7 @@ class Movie{
       popularity = json["popularity"].toDouble(),
       title = json["title"],
       backPoster = json["backdrop_path"],
-      poster = json["poster"],
+      poster = json["poster_path"],
       overview = json["overview"],
       rating = json["vote_average"].toDouble();
 }
