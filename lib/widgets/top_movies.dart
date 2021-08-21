@@ -1,50 +1,61 @@
-//import 'dart:js';
-
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-//import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:movie_app/bloc/get_movies_byGenre_bloc.dart';
+import 'package:movie_app/bloc/get_movies_bloc.dart';
 import 'package:movie_app/model/movie.dart';
 import 'package:movie_app/model/movie_response.dart';
 import 'package:movie_app/style/theme.dart' as Style;
-// import 'package:page_indicator/page_indicator.dart';
 
-class GenreMovies extends StatefulWidget {
-  final int genreId;
-  GenreMovies({Key key, this.genreId}) : super(key: key);
+class TopMovies extends StatefulWidget {
+   TopMovies({ Key key }) : super(key: key);
+
   @override
-  _GenreMoviesState createState() => _GenreMoviesState(genreId);
+  _TopMoviesState createState() => _TopMoviesState();
 }
 
-class _GenreMoviesState extends State<GenreMovies> {
-  final int genreId;
-  _GenreMoviesState(this.genreId);
+class _TopMoviesState extends State<TopMovies> {
   @override
   void initState() {
     super.initState();
-    moviesByGenreBloc..getMoviesByGenre(genreId);
+    moviesBloc..getMovies();
   }
-
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<MovieResponse>(
-        stream: moviesByGenreBloc.subject.stream,
+    return Expanded(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(left: 10.0, top: 20.0),
+            child: Text("TOP RATED MOVIES", style: TextStyle(
+              color: Style.Colors.titleColor,
+              fontWeight: FontWeight.w500,
+              fontSize: 12.0
+            ),),
+          ),
+            SizedBox(
+              height: 5.0,
+            ),
+            StreamBuilder<MovieResponse>(
+        stream: moviesBloc.subject.stream,
         builder: (context, AsyncSnapshot<MovieResponse> snapshot) {
-          if (snapshot.hasData) {
-            if (snapshot.data.error != null && snapshot.data.error.length > 0) {
+          if(snapshot.hasData) {
+            if(snapshot.data.error != null && snapshot.data.error.length > 0) {
               return _buildErrorWidget(snapshot.data.error);
             }
-            return _buildMoviesByGenreWidget(snapshot.data);
+            return _buildMoviesWidget(snapshot.data);
           } else if (snapshot.hasError) {
             return _buildErrorWidget(snapshot.error);
           } else {
             return _buildLoadingWidget();
           }
-        });
+        },
+        )
+      ],
+      ),
+    );
   }
-
-  Widget _buildLoadingWidget() {
+   Widget _buildLoadingWidget() {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -72,7 +83,7 @@ class _GenreMoviesState extends State<GenreMovies> {
     ));
   }
 
-  Widget _buildMoviesByGenreWidget(MovieResponse data) {
+  Widget _buildMoviesWidget(MovieResponse data) {
 
     List<Movie> movies = data.movies;
     if (movies.length == 0) {
@@ -106,7 +117,6 @@ class _GenreMoviesState extends State<GenreMovies> {
                                       BorderRadius.all(Radius.circular(2.0)),
                                   shape: BoxShape.rectangle),
                               child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
                                   Icon(
                                     EvaIcons.filmOutline,
@@ -162,7 +172,6 @@ class _GenreMoviesState extends State<GenreMovies> {
                           SizedBox(
                             width: 5.0,
                           ),
-                         
                           RatingBar.builder(
                             itemSize: 8.0,
                             initialRating: movies[index].rating / 2,
@@ -189,16 +198,3 @@ class _GenreMoviesState extends State<GenreMovies> {
       );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
