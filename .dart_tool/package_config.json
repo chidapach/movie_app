@@ -74,6 +74,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "flutter_inappwebview",
+      "rootUri": "file:///Users/chidapachirathumkul/development/tools/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_inappwebview-5.3.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_rating_bar",
       "rootUri": "file:///Users/chidapachirathumkul/development/tools/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_rating_bar-4.0.0",
       "packageUri": "lib/",
@@ -134,6 +140,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "sliver_fab",
+      "rootUri": "file:///Users/chidapachirathumkul/development/tools/flutter/.pub-cache/hosted/pub.dartlang.org/sliver_fab-1.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
       "name": "source_span",
       "rootUri": "file:///Users/chidapachirathumkul/development/tools/flutter/.pub-cache/hosted/pub.dartlang.org/source_span-1.8.1",
       "packageUri": "lib/",
@@ -182,13 +194,19 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "youtube_player_flutter",
+      "rootUri": "file:///Users/chidapachirathumkul/development/tools/flutter/.pub-cache/hosted/pub.dartlang.org/youtube_player_flutter-8.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "movie_app",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "2.9"
     }
   ],
-  "generated": "2021-08-21T16:11:04.016115Z",
+  "generated": "2021-08-21T19:27:35.620510Z",
   "generator": "pub",
   "generatorVersion": "2.13.4"
 }
