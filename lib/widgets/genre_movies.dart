@@ -7,6 +7,7 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:movie_app/bloc/get_movies_byGenre_bloc.dart';
 import 'package:movie_app/model/movie.dart';
 import 'package:movie_app/model/movie_response.dart';
+import 'package:movie_app/screen/datail_screen.dart';
 import 'package:movie_app/style/theme.dart' as Style;
 // import 'package:page_indicator/page_indicator.dart';
 
@@ -94,6 +95,12 @@ class _GenreMoviesState extends State<GenreMovies> {
                     bottom: 10.0,
                     right: 10.0,
                   ),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(
+                        builder: (context) => MovieDetailScreen(movie: movies[index])
+                      ));
+                    },
                   child: Column(
                     children: <Widget>[
                       movies[index].poster == null
@@ -183,7 +190,7 @@ class _GenreMoviesState extends State<GenreMovies> {
                       ),
                     ],
                   ),
-                );
+                 ) );
               }),
         ),
       );
