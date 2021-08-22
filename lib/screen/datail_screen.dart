@@ -1,4 +1,6 @@
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:movie_app/bloc/get_movie_videos_bloc.dart';
 import 'package:movie_app/model/movie.dart';
 import 'package:movie_app/model/video.dart';
@@ -96,6 +98,48 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
                     )
                 ],),
               ),
+            ),
+            SliverPadding(
+              padding: EdgeInsets.all(0.0),
+              sliver: SliverList(delegate: SliverChildListDelegate(
+                [
+                  Padding(
+                    padding: EdgeInsets.only(left: 10.0, top: 20.0),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          movie.rating.toString(),
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 14.0,
+                            fontWeight: FontWeight.bold
+                          ),
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                         RatingBar.builder(
+                            itemSize: 10.0,
+                            initialRating: movie.rating / 2,
+                            minRating: 1,
+                            direction: Axis.horizontal,
+                            allowHalfRating: true,
+                            itemCount: 5,
+                            itemPadding: EdgeInsets.symmetric(horizontal: 2.0),
+                            itemBuilder: (context, _) => Icon(
+                              EvaIcons.star,
+                              color: Style.Colors.secondColor,
+                            ),
+                          onRatingUpdate: (rating) {
+                            print(rating);
+                          },
+                          )
+                      ],
+                    ),
+                  )
+                ]
+              ),),
             )
           ],
           );
@@ -116,6 +160,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
     );
   }
   Widget _buildVideoWidget(VideoResponse data) {
+    // ignore: unused_local_variable
     List<Video> videos = data.videos;
     return FloatingActionButton(
       backgroundColor: Style.Colors.secondColor,
