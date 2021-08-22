@@ -137,7 +137,27 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
                           )
                       ],
                     ),
-                  )
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10, top: 20),
+                    child: Text("OVERVIEW", style: TextStyle(
+                      color: Style.Colors.titleColor,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 12
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 5,
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(10),
+                    child: Text(
+                      movie.overview,
+                      style: TextStyle(color: Colors.white, fontSize: 12, height: 1.5
+                      ),
+                    ),
+                  ),
                 ]
               ),),
             )
