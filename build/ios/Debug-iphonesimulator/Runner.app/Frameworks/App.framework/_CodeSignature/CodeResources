@@ -10,7 +10,7 @@
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		s12n5E2YMbHb2zUO8HhSvvsHoNQ=
+		56q0HebeoGBmd61QW7y/uQe/WUA=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -18,7 +18,7 @@
 		</data>
 		<key>flutter_assets/NOTICES</key>
 		<data>
-		jp2rGIozmCkcJY0rPxal4Js+ntM=
+		YCsRVsS+bS4NLtk9BxK9DjDZzkI=
 		</data>
 		<key>flutter_assets/fonts/MaterialIcons-Regular.otf</key>
 		<data>
@@ -30,7 +30,7 @@
 		</data>
 		<key>flutter_assets/kernel_blob.bin</key>
 		<data>
-		KbryGXbexpjQspWW3Wxl1pRmcwA=
+		ixlKC90Iuv4OHqpXn9MPqGVEbjs=
 		</data>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
 		<data>
@@ -39,6 +39,14 @@
 		<key>flutter_assets/packages/eva_icons_flutter/lib/fonts/evaicons.ttf</key>
 		<data>
 		qDdlMqUyuPI6ZWQv3/W4petV/0E=
+		</data>
+		<key>flutter_assets/packages/flutter_inappwebview/t_rex_runner/t-rex.css</key>
+		<data>
+		mBihw0DQ+fObskdvU/uJxi4GQ/4=
+		</data>
+		<key>flutter_assets/packages/flutter_inappwebview/t_rex_runner/t-rex.html</key>
+		<data>
+		60RUAYYoUnETCwVvpgmbGYgxn8Q=
 		</data>
 		<key>flutter_assets/packages/font_awesome_flutter/lib/fonts/fa-brands-400.ttf</key>
 		<data>
@@ -52,6 +60,10 @@
 		<data>
 		cKS37n9bGDtcuuzDL2cOcax8U2Q=
 		</data>
+		<key>flutter_assets/packages/youtube_player_flutter/assets/speedometer.webp</key>
+		<data>
+		TDvhTCHVurikSmzXUIYz0DM62Dw=
+		</data>
 		<key>flutter_assets/vm_snapshot_data</key>
 		<data>
 		BICKLyZmEDX0yMJrQwYDz3tKwt8=
@@ -63,11 +75,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			s12n5E2YMbHb2zUO8HhSvvsHoNQ=
+			56q0HebeoGBmd61QW7y/uQe/WUA=
 			</data>
 			<key>hash2</key>
 			<data>
-			EJnhj/JH96P3Kz+/SwKc2cBpA6CC7GWf2NUP8s97PHQ=
+			pmbGunL6PEq1PrZjNdNxLPLHL86F7UuIeqlwk5donoc=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -85,11 +97,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			jp2rGIozmCkcJY0rPxal4Js+ntM=
+			YCsRVsS+bS4NLtk9BxK9DjDZzkI=
 			</data>
 			<key>hash2</key>
 			<data>
-			JkISaKSq/IUjOZHN2zpccwItd2UMg8WsXgT0m3qvIPA=
+			M911/Fa2tpOm/vEq039qyU5nwv+ZEL0n/4TgOJJ9FJU=
 			</data>
 		</dict>
 		<key>flutter_assets/fonts/MaterialIcons-Regular.otf</key>
@@ -118,11 +130,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			KbryGXbexpjQspWW3Wxl1pRmcwA=
+			ixlKC90Iuv4OHqpXn9MPqGVEbjs=
 			</data>
 			<key>hash2</key>
 			<data>
-			7OjEM/XPTd+ZX3Yy10ZhFrfWTv0iPW6W+L2tVrE37Ug=
+			5yV4tbDiohCYXdrWrQdZ/QpXuqaOADeWnO+RlUNB+A8=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/cupertino_icons/assets/CupertinoIcons.ttf</key>
@@ -145,6 +157,28 @@
 			<key>hash2</key>
 			<data>
 			db5MyFm1iYe5fbbe1uCVnRNMZEn41LvfTOyrEBxAOlw=
+			</data>
+		</dict>
+		<key>flutter_assets/packages/flutter_inappwebview/t_rex_runner/t-rex.css</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			mBihw0DQ+fObskdvU/uJxi4GQ/4=
+			</data>
+			<key>hash2</key>
+			<data>
+			LlYyIL2FXhHyMNwnoNby/VuDmimW+G7cgCWqtF5vpcM=
+			</data>
+		</dict>
+		<key>flutter_assets/packages/flutter_inappwebview/t_rex_runner/t-rex.html</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			60RUAYYoUnETCwVvpgmbGYgxn8Q=
+			</data>
+			<key>hash2</key>
+			<data>
+			3HLPwfHSpQE7ud40+MrPXiblQtfXE/y+CbhltKrKbd8=
 			</data>
 		</dict>
 		<key>flutter_assets/packages/font_awesome_flutter/lib/fonts/fa-brands-400.ttf</key>
@@ -178,6 +212,17 @@
 			<key>hash2</key>
 			<data>
 			ZQcCXpzooI7xn3wzV4Xqu2czWR4ZfFGjK8LcEUn+RbE=
+			</data>
+		</dict>
+		<key>flutter_assets/packages/youtube_player_flutter/assets/speedometer.webp</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			TDvhTCHVurikSmzXUIYz0DM62Dw=
+			</data>
+			<key>hash2</key>
+			<data>
+			UyJsGpac7pIldiQobLwRFgmPJCSQLk0Ald1JuO/hCTg=
 			</data>
 		</dict>
 		<key>flutter_assets/vm_snapshot_data</key>

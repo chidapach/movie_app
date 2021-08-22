@@ -11,6 +11,7 @@ class CastResponse {
   error = "";
 
   CastResponse.withError(String errorValue)
+  // ignore: deprecated_member_use
   : casts = List(),
   error = errorValue;
 }
