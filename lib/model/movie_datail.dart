@@ -14,14 +14,21 @@ class  MovieDetail {
     this.budget,
     this.genres,
     this.releaseDate,
-    this.runtime
+    this.runtime, param6
   );
 
-  MovieDetail.fromJson(Map<String, dynamic> json)
-  : id = json["id"],
-    adult = json["adult"],
-    budget = json["budget"],
-    genres = (json["genres"] as List).map((i) => new Genre.fromJson(i)).toList(),
-    releaseDate = json["release_date"],
-    runtime = json["runtime"];
+MovieDetail.fromJson(Map<String, dynamic> json)
+      : id = json["id"],
+        adult = json["adult"],
+        budget = json["budget"],
+        genres = (json["genres"] as List).map((i) => new Genre.fromJson(i)).toList(),
+        releaseDate = json["release_date"],
+        runtime = json["runtime"];
+  // MovieDetail.fromJson(Map<String, dynamic> json)
+  // : id = json["id"],
+  //   adult = json["adult"],
+  //   budget = json["budget"],
+  //   genres = (json["genres"] as List).map((i) => new Genre.fromJson(i)).toList(),
+  //   releaseDate = json["release_date"],
+  //   runtime = json["runtime"];
 }
